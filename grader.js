@@ -1,4 +1,4 @@
-#!/Usr/bin/env/ node
+#!/usr/bin/env node
 /*
 Automatically grade files for the presence of specified HTML tags.
 Uses Commander.js and cherrio ('npm install cheerio' and npm install commander' before running this puppy.) teaches command line development and basic DOM parsing.
@@ -6,14 +6,14 @@ Uses Commander.js and cherrio ('npm install cheerio' and npm install commander' 
 see github readme for references.
 */
 
-Var fs = require('fs');
+var fs = require('fs');
 var program = require('commander');
 var cheerio = require('cheerio');
 var HTMLFILE_DEFAULT = "index.html";
 var CHECKSFILE_DEFAULT = "checks.json";
 
 var assertFileExists = function(infile) {
-    var instr = infinite.toString();
+    var instr = infile.toString();
     if(!fs.existsSync(instr)) {
 	console.log("%s does not exist. Exiting.", instr);
 	process.exit(1); // http://nodejs.org/api/process.html#process_process_exit_code
@@ -23,7 +23,7 @@ var assertFileExists = function(infile) {
 
 var cheerioHtmlFile = function(htmlfile) {
     return cheerio.load(fs.readFileSync(htmlfile));
-};    
+};
 
 
 var loadChecks = function(checksfile) {
@@ -59,3 +59,4 @@ console.log(outJson);
 } else {
 exports.checkHtmlFile = checkHtmlFile;
 }
+
